@@ -1,5 +1,7 @@
 # Simple Forum API
 
+*for testing purpose only*
+
 ## Postman collection
 
 ```
