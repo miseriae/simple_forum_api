@@ -1,0 +1,9 @@
+*.pyc
+*.db
+*~
+.*
+
+venv/
+
+!.gitignore
+!.flake8
