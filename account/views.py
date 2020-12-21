@@ -2,16 +2,16 @@ import jwt
 
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, permissions
 from django.conf import settings
 from django.contrib import auth
-from django.contrib.auth.models import update_last_login
 
 from .serializers import UserSerializer
 
 
 class RegisterView(GenericAPIView):
     serializer_class = UserSerializer
+    permission_classes = (permissions.AllowAny,)
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -23,13 +23,13 @@ class RegisterView(GenericAPIView):
 
 class LoginView(GenericAPIView):
     serializer_class = UserSerializer
+    permission_classes = (permissions.AllowAny,)
 
     def post(self, request):
         data = request.data
         username = data.get("username", "")
         password = data.get("password", "")
         user = auth.authenticate(username=username, password=password)
-        update_last_login(None, user)
 
         if user:
             auth_token = jwt.encode(
