@@ -22,7 +22,7 @@ class PostViewSet(LikedMixin, viewsets.ModelViewSet):
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = (permissions.IsAuthenticated,)
-    lookup_field = "id"
+    lookup_field = 'id'
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user)
