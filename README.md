@@ -1,5 +1,11 @@
 # Simple Forum API
 
+## Postman collection
+
+```
+https://www.getpostman.com/collections/84cb350e41cb05490aed
+```
+
 ## Installation:
 
 ```
